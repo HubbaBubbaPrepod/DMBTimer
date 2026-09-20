@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+		<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+		<RootNamespace>DMBTimer</RootNamespace>
+		<AssemblyName>DMBTimer</AssemblyName>
+		<AssemblyTitle>DMBTimer</AssemblyTitle>
+		<Product>DMBTimer</Product>
+		<Company>DMBTimer</Company>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<Platforms>x86;x64;ARM64</Platforms>
+		<RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
+		<PublishProfile>win-$(Platform).pubxml</PublishProfile>
+		<UseWinUI>true</UseWinUI>
+		<EnableMsixTooling>true</EnableMsixTooling>
+		<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<Content Remove="Assets\Square1254x1254Logo.altform-lightunplated_targetsize-16.png" />
+		<Content Remove="Assets\Square1254x1254Logo.altform-lightunplated_targetsize-24.png" />
+		<Content Remove="Assets\Square1254x1254Logo.altform-lightunplated_targetsize-256.png" />
+		<Content Remove="Assets\Square1254x1254Logo.altform-lightunplated_targetsize-32.png" />
+		<Content Remove="Assets\Square1254x1254Logo.altform-lightunplated_targetsize-48.png" />
+		<Content Remove="Assets\Square1254x1254Logo.altform-unplated_targetsize-16.png" />
+		<Content Remove="Assets\Square1254x1254Logo.altform-unplated_targetsize-24.png" />
+		<Content Remove="Assets\Square1254x1254Logo.altform-unplated_targetsize-256.png" />
+		<Content Remove="Assets\Square1254x1254Logo.altform-unplated_targetsize-32.png" />
+		<Content Remove="Assets\Square1254x1254Logo.altform-unplated_targetsize-48.png" />
+		<Content Remove="Assets\Square1254x1254Logo.scale-100.png" />
+		<Content Remove="Assets\Square1254x1254Logo.scale-125.png" />
+		<Content Remove="Assets\Square1254x1254Logo.scale-150.png" />
+		<Content Remove="Assets\Square1254x1254Logo.scale-200.png" />
+		<Content Remove="Assets\Square1254x1254Logo.scale-400.png" />
+		<Content Remove="Assets\Square1254x1254Logo.targetsize-16.png" />
+		<Content Remove="Assets\Square1254x1254Logo.targetsize-24.png" />
+		<Content Remove="Assets\Square1254x1254Logo.targetsize-256.png" />
+		<Content Remove="Assets\Square1254x1254Logo.targetsize-32.png" />
+		<Content Remove="Assets\Square1254x1254Logo.targetsize-48.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="Assets\*.png" CopyToOutputDirectory="PreserveNewest" />
+		<Content Include="Assets\dembel_fanfare.wav" />
+	</ItemGroup>
+	<ItemGroup>
+		<Manifest Include="$(ApplicationManifest)" />
+	</ItemGroup>
+	<ItemGroup>
+		<TrimmerRootDescriptor Include="TrimmerRoots.xml" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+		<ProjectCapability Include="Msix" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2270" />
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="2.2.0" />
+		<PackageReference Include="H.NotifyIcon.WinUI" Version="2.3.0" />
+	</ItemGroup>
+	<PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+		<HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+	</PropertyGroup>
+	<PropertyGroup>
+		<PublishReadyToRun Condition="'$(Configuration)' == 'Debug'">False</PublishReadyToRun>
+		<PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">True</PublishReadyToRun>
+		<PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
+		<!-- Configure a signing certificate in the release environment; do not keep private PFX files in source control. -->
+		<AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
+	</PropertyGroup>
+</Project>

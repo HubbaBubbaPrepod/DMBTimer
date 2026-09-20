@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="DMBTimer.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DMBTimer"
+    xmlns:conv="using:DMBTimer.Converters"
+    xmlns:tb="using:H.NotifyIcon"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="DMBTimer"
+    x:Name="RootWindow">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded">
+        <Grid.KeyboardAccelerators>
+            <KeyboardAccelerator Modifiers="Control" Key="Number1" Invoked="TimerAccelerator_Invoked" />
+            <KeyboardAccelerator Modifiers="Control" Key="Number2" Invoked="StatsAccelerator_Invoked" />
+            <KeyboardAccelerator Modifiers="Control" Key="Number3" Invoked="SettingsAccelerator_Invoked" />
+        </Grid.KeyboardAccelerators>
+
+        <Grid.Resources>
+            <conv:DateTimeToStringConverter x:Key="DateConverter" />
+            <conv:DateTimeToDateTimeOffsetConverter x:Key="DateTimeOffsetConverter" />
+
+            <Storyboard x:Name="DembelCelebrationStoryboard">
+                <DoubleAnimation Storyboard.TargetName="DembelOverlay"
+                                 Storyboard.TargetProperty="Opacity"
+                                 From="0" To="1" Duration="0:0:0.35"
+                                 EnableDependentAnimation="True" />
+                <DoubleAnimation Storyboard.TargetName="DembelOverlayScale"
+                                 Storyboard.TargetProperty="ScaleX"
+                                 From="0.88" To="1" Duration="0:0:0.38">
+                    <DoubleAnimation.EasingFunction>
+                        <BackEase Amplitude="0.35" EasingMode="EaseOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation Storyboard.TargetName="DembelOverlayScale"
+                                 Storyboard.TargetProperty="ScaleY"
+                                 From="0.88" To="1" Duration="0:0:0.38">
+                    <DoubleAnimation.EasingFunction>
+                        <BackEase Amplitude="0.35" EasingMode="EaseOut" />
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+        </Grid.Resources>
+
+        <NavigationView x:Name="MainNavigationView"
+                        PaneDisplayMode="LeftCompact"
+                        IsBackButtonVisible="Collapsed"
+                        IsSettingsVisible="True"
+                        SelectionChanged="MainNavigationView_SelectionChanged">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="{Binding ViewModel.NavigationTimer}"
+                                    Tag="Timer" Icon="Clock" IsSelected="True" />
+                <NavigationViewItem Content="{Binding ViewModel.NavigationStats}"
+                                    Tag="Stats" Icon="Calendar" />
+            </NavigationView.MenuItems>
+
+            <NavigationView.PaneFooter>
+                <Button x:Name="ThemeToggleButton"
+                        HorizontalAlignment="Stretch"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        ToolTipService.ToolTip="{Binding ViewModel.ToolTipThemeToggle}"
+                        Command="{Binding ViewModel.ToggleThemeCommand}">
+                    <TextBlock x:Name="ThemeToggleIcon" Text="🌓" FontSize="18" />
+                </Button>
+            </NavigationView.PaneFooter>
+
+            <Grid x:Name="ContentGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Border x:Name="NotificationHost"
+                        Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top"
+                        Margin="20" Padding="16" CornerRadius="12"
+                        Background="{ThemeResource LayerFillColorDefaultBrush}"
+                        Visibility="Collapsed" MaxWidth="360" Canvas.ZIndex="10">
+                    <StackPanel Spacing="8">
+                        <TextBlock x:Name="NotificationTitle" FontWeight="SemiBold" TextWrapping="Wrap" />
+                        <TextBlock x:Name="NotificationMessage" TextWrapping="Wrap" Opacity="0.8" />
+                    </StackPanel>
+                </Border>
+
+                <Grid x:Name="TimerPage" Grid.Row="1" Visibility="Visible" Opacity="1" Padding="24">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+                        <StackPanel Spacing="14" HorizontalAlignment="Center" MaxWidth="720">
+                            <TextBlock Text="{Binding ViewModel.ProfileGreeting}"
+                                       FontSize="16" Opacity="0.72" HorizontalAlignment="Center" />
+                            <TextBlock Text="{Binding ViewModel.TimerLabel}"
+                                       FontSize="28" FontWeight="Bold" HorizontalAlignment="Center" />
+                            <TextBlock x:Name="TimeDisplay"
+                                       FontSize="32" FontWeight="SemiBold"
+                                       HorizontalAlignment="Center"
+                                       Text="{Binding ViewModel.TimeDisplay}" TextWrapping="Wrap" />
+
+                            <StackPanel HorizontalAlignment="Center" Width="420" Spacing="6">
+                                <ProgressBar Minimum="0" Maximum="100"
+                                             Value="{Binding ViewModel.ProgressValue}"
+                                             Height="20" Width="420" />
+                                <TextBlock HorizontalAlignment="Center"
+                                           Text="{Binding ViewModel.PercentText}" FontSize="20" />
+                            </StackPanel>
+
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="10">
+                                <TextBlock Text="{Binding ViewModel.StartDateLabel}"
+                                           FontSize="18" VerticalAlignment="Center" />
+                                <local:HoverContent>
+                                    <Button x:Name="DateButton" Background="Transparent" BorderThickness="0"
+                                            Padding="0" FontSize="18" VerticalAlignment="Center"
+                                            Foreground="{ThemeResource SystemControlForegroundBaseHighBrush}"
+                                            Click="DateButton_Click">
+                                        <Button.Content>
+                                            <TextBlock Text="{Binding ViewModel.StartDate, Converter={StaticResource DateConverter}, ConverterParameter='d'}"
+                                                       TextDecorations="Underline" />
+                                        </Button.Content>
+                                        <Button.Flyout>
+                                            <Flyout x:Name="DateFlyout" Placement="Bottom">
+                                                <DatePicker x:Name="StartDatePicker"
+                                                            DateChanged="StartDatePicker_DateChanged"
+                                                            SelectedDate="{Binding ViewModel.StartDate, Converter={StaticResource DateTimeOffsetConverter}, Mode=TwoWay}" />
+                                            </Flyout>
+                                        </Button.Flyout>
+                                    </Button>
+                                </local:HoverContent>
+                            </StackPanel>
+
+                            <TextBlock x:Name="DateDisplay" Text="{Binding ViewModel.DateDisplay}"
+                                       FontSize="18" HorizontalAlignment="Center" />
+
+                            <Border Background="{ThemeResource AccentFillColorSecondaryBrush}"
+                                    CornerRadius="18" Padding="12,6" HorizontalAlignment="Center">
+                                <TextBlock Text="{Binding ViewModel.CurrentServiceDayText}"
+                                           FontWeight="SemiBold" />
+                            </Border>
+
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                                    BorderThickness="1" CornerRadius="16" Padding="18"
+                                    Width="620" Margin="0,8,0,0">
+                                <Grid ColumnSpacing="14">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding ViewModel.NextMilestoneGlyph}"
+                                               FontSize="32" VerticalAlignment="Center" />
+                                    <StackPanel Grid.Column="1" Spacing="4">
+                                        <TextBlock Text="{Binding ViewModel.NextMilestoneLabel}"
+                                                   FontSize="12" Opacity="0.62" />
+                                        <TextBlock Text="{Binding ViewModel.NextMilestoneTitle}"
+                                                   FontSize="18" FontWeight="SemiBold" TextWrapping="Wrap" />
+                                        <TextBlock Text="{Binding ViewModel.NextMilestoneDescription}"
+                                                   FontSize="12" Opacity="0.7" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" VerticalAlignment="Center" Spacing="3">
+                                        <TextBlock Text="{Binding ViewModel.NextMilestoneCountdownText}"
+                                                   FontWeight="SemiBold" HorizontalAlignment="Right" />
+                                        <TextBlock Text="{Binding ViewModel.NextMilestoneDateText}"
+                                                   FontSize="12" Opacity="0.65" HorizontalAlignment="Right" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"
+                                        Spacing="18" Margin="0,8,0,0">
+                                <local:HoverContent>
+                                    <TextBlock x:Name="ClassicText" Text="{Binding ViewModel.ModeClassic}"
+                                               FontSize="16" PointerPressed="ModeText_PointerPressed" Tag="Classic" />
+                                </local:HoverContent>
+                                <local:HoverContent>
+                                    <TextBlock x:Name="WeeksText" Text="{Binding ViewModel.ModeWeeks}"
+                                               FontSize="16" PointerPressed="ModeText_PointerPressed" Tag="Weeks" />
+                                </local:HoverContent>
+                                <local:HoverContent>
+                                    <TextBlock x:Name="DaysText" Text="{Binding ViewModel.ModeDays}"
+                                               FontSize="16" PointerPressed="ModeText_PointerPressed" Tag="Days" />
+                                </local:HoverContent>
+                                <local:HoverContent>
+                                    <TextBlock x:Name="HoursText" Text="{Binding ViewModel.ModeHours}"
+                                               FontSize="16" PointerPressed="ModeText_PointerPressed" Tag="Hours" />
+                                </local:HoverContent>
+                                <local:HoverContent>
+                                    <TextBlock x:Name="MinutesText" Text="{Binding ViewModel.ModeMinutes}"
+                                               FontSize="16" PointerPressed="ModeText_PointerPressed" Tag="Minutes" />
+                                </local:HoverContent>
+                                <local:HoverContent>
+                                    <TextBlock x:Name="SecondsText" Text="{Binding ViewModel.ModeSeconds}"
+                                               FontSize="16" PointerPressed="ModeText_PointerPressed" Tag="Seconds" />
+                                </local:HoverContent>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+
+                <Grid x:Name="StatsPage" Grid.Row="1" Visibility="Collapsed" Opacity="0" Padding="24">
+                    <ScrollViewer>
+                        <StackPanel Spacing="16">
+                            <TextBlock Text="{Binding ViewModel.StatsHeader}" FontSize="24" FontWeight="SemiBold" />
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                                <Grid ColumnSpacing="16">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Spacing="4">
+                                        <TextBlock Text="{Binding ViewModel.StatsServed}" Opacity="0.7" />
+                                        <TextBlock Text="{Binding ViewModel.DaysServedText}" FontSize="20" FontWeight="SemiBold" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Spacing="4">
+                                        <TextBlock Text="{Binding ViewModel.StatsLeft}" Opacity="0.7" />
+                                        <TextBlock Text="{Binding ViewModel.DaysLeftText}" FontSize="20" FontWeight="SemiBold" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2" Spacing="4">
+                                        <TextBlock Text="{Binding ViewModel.StatsProgress}" Opacity="0.7" />
+                                        <TextBlock Text="{Binding ViewModel.PercentText}" FontSize="20" FontWeight="SemiBold" />
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="3" Spacing="4">
+                                        <TextBlock Text="{Binding ViewModel.StatsDembel}" Opacity="0.7" />
+                                        <TextBlock Text="{Binding ViewModel.DembelDateText}" FontSize="20" FontWeight="SemiBold" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                                <Grid ColumnSpacing="16">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Spacing="8">
+                                        <TextBlock Text="{Binding ViewModel.CalendarHeader}" FontWeight="SemiBold" />
+                                        <CalendarView x:Name="ServiceCalendar" SelectionMode="None"
+                                                      IsTodayHighlighted="True"
+                                                      CalendarViewDayItemChanging="ServiceCalendar_CalendarViewDayItemChanging" />
+                                    </StackPanel>
+                                    <ListView Grid.Column="1" ItemsSource="{Binding ViewModel.Milestones}">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0,6" ColumnSpacing="10">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Grid.Column="0" Text="{Binding Glyph}" FontSize="20" VerticalAlignment="Center" />
+                                                    <StackPanel Grid.Column="1" Opacity="{Binding TextOpacity}">
+                                                        <TextBlock Text="{Binding Title}" FontSize="15" FontWeight="SemiBold" />
+                                                        <TextBlock Text="{Binding Description}" FontSize="12" Opacity="0.65" TextWrapping="Wrap" />
+                                                    </StackPanel>
+                                                    <TextBlock Grid.Column="2" Text="{Binding DateText}"
+                                                               FontSize="13" VerticalAlignment="Center" Opacity="0.7" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </Grid>
+                            </Border>
+
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                                <StackPanel Spacing="12">
+                                    <Grid ColumnSpacing="12">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Spacing="4">
+                                            <TextBlock Text="{Binding ViewModel.CustomMilestonesHeader}"
+                                                       FontSize="18" FontWeight="SemiBold" />
+                                            <TextBlock Text="{Binding ViewModel.CustomMilestonesDescription}"
+                                                       TextWrapping="Wrap" Opacity="0.68" />
+                                        </StackPanel>
+                                        <Button Grid.Column="1" Content="{Binding ViewModel.CustomMilestoneAdd}"
+                                                Command="{Binding ViewModel.AddCustomMilestoneCommand}"
+                                                Style="{StaticResource AccentButtonStyle}" />
+                                    </Grid>
+                                    <ListView ItemsSource="{Binding ViewModel.CustomMilestones}"
+                                              SelectionMode="None" MaxHeight="260">
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0,7" ColumnSpacing="12">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel Spacing="3">
+                                                        <TextBlock Text="{Binding Title}" FontWeight="SemiBold" />
+                                                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap"
+                                                                   FontSize="12" Opacity="0.66" />
+                                                    </StackPanel>
+                                                    <TextBlock Grid.Column="1" Text="{Binding DateText}"
+                                                               VerticalAlignment="Center" Opacity="0.72" />
+                                                    <Button Grid.Column="2" Content="✎"
+                                                            ToolTipService.ToolTip="{Binding DataContext.ViewModel.CustomMilestoneEdit, ElementName=LayoutRoot}"
+                                                            Click="CustomMilestoneEdit_Click" />
+                                                    <Button Grid.Column="3" Content="🗑"
+                                                            ToolTipService.ToolTip="{Binding DataContext.ViewModel.CustomMilestoneDelete, ElementName=LayoutRoot}"
+                                                            Click="CustomMilestoneDelete_Click" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+
+                <Grid x:Name="SettingsPage" Grid.Row="1" Visibility="Collapsed" Opacity="0" Padding="24">
+                    <ScrollViewer>
+                        <StackPanel Spacing="16" MaxWidth="680">
+                            <TextBlock Text="{Binding ViewModel.SettingsHeader}" FontSize="24" FontWeight="SemiBold" />
+
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                                <TextBox Header="{Binding ViewModel.ProfileNameLabel}"
+                                         PlaceholderText="{Binding ViewModel.ProfileNamePlaceholder}"
+                                         MaxLength="80"
+                                         Text="{Binding ViewModel.ProfileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </Border>
+
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                                <Grid ColumnSpacing="16">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Spacing="5">
+                                        <TextBlock Text="{Binding ViewModel.MilitaryBranchLabel}" FontWeight="SemiBold" />
+                                        <TextBlock Text="{Binding ViewModel.SelectedMilitaryBranchDisplay}" FontSize="16" />
+                                        <TextBlock Text="{Binding ViewModel.MilitaryBranchDescription}"
+                                                   TextWrapping="Wrap" Opacity="0.7" />
+                                    </StackPanel>
+                                    <Button Grid.Column="1" Content="{Binding ViewModel.MilitaryBranchChange}"
+                                            VerticalAlignment="Center" Click="ChangeMilitaryBranch_Click" />
+                                </Grid>
+                            </Border>
+
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                                <StackPanel Spacing="12">
+                                    <TextBlock Text="{Binding ViewModel.ServiceTermLabel}" FontWeight="SemiBold" />
+                                    <ComboBox ItemsSource="{Binding ViewModel.ServiceTermOptions}"
+                                              SelectedItem="{Binding ViewModel.SelectedServiceTermOption, Mode=TwoWay}"
+                                              DisplayMemberPath="DisplayName"
+                                              HorizontalAlignment="Stretch" />
+                                    <Grid ColumnSpacing="12">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <NumberBox Grid.Column="0" Header="{Binding ViewModel.ServiceLengthLabel}"
+                                                   Value="{Binding ViewModel.ServiceLengthDays, Mode=TwoWay}"
+                                                   IsEnabled="{Binding ViewModel.IsDaysTermMode}"
+                                                   Minimum="1" Maximum="3650" SpinButtonPlacementMode="Inline" />
+                                        <DatePicker x:Name="DembelDatePicker" Grid.Column="1"
+                                                    Header="{Binding ViewModel.DembelDatePickerLabel}"
+                                                    IsEnabled="{Binding ViewModel.IsEndDateTermMode}"
+                                                    SelectedDate="{Binding ViewModel.EndDate, Converter={StaticResource DateTimeOffsetConverter}, Mode=TwoWay}" />
+                                    </Grid>
+                                    <Button Content="{Binding ViewModel.ServiceLengthApply}"
+                                            Command="{Binding ViewModel.ApplyServiceTermCommand}"
+                                            HorizontalAlignment="Left" />
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                                <StackPanel Spacing="10">
+                                    <TextBlock Text="{Binding ViewModel.SystemNotificationsLabel}" FontWeight="SemiBold" />
+                                    <ToggleSwitch Header="{Binding ViewModel.SystemNotificationsToggle}"
+                                                  IsOn="{Binding ViewModel.SystemNotificationsEnabled, Mode=TwoWay}" />
+                                    <Button Content="{Binding ViewModel.TestNotification}"
+                                            Command="{Binding ViewModel.TestNotificationCommand}"
+                                            HorizontalAlignment="Left" />
+                                    <Border Height="1" Background="{ThemeResource DividerStrokeColorDefaultBrush}" />
+                                    <TextBlock Text="{Binding ViewModel.NotificationSoundLabel}" FontWeight="SemiBold" />
+                                    <TextBlock Text="{Binding ViewModel.NotificationSoundDisplay}"
+                                               Opacity="0.75" TextTrimming="CharacterEllipsis" />
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <Button Content="{Binding ViewModel.NotificationSoundSelect}"
+                                                Command="{Binding ViewModel.SelectSoundCommand}" />
+                                        <Button Content="{Binding ViewModel.NotificationSoundPreview}"
+                                                Command="{Binding ViewModel.PreviewSoundCommand}" />
+                                        <Button Content="{Binding ViewModel.NotificationSoundReset}"
+                                                Command="{Binding ViewModel.ResetSoundCommand}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="{Binding ViewModel.AutoStartLabel}" FontWeight="SemiBold" />
+                                    <ToggleSwitch Header="{Binding ViewModel.AutoStartToggle}"
+                                                  IsOn="{Binding ViewModel.AutoStartEnabled, Mode=TwoWay}"
+                                                  IsEnabled="{Binding ViewModel.CanChangeAutoStart}" />
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                                <StackPanel Spacing="10">
+                                    <TextBlock Text="{Binding ViewModel.BackupLabel}" FontWeight="SemiBold" />
+                                    <TextBlock Text="{Binding ViewModel.BackupDescription}"
+                                               TextWrapping="Wrap" Opacity="0.72" />
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <Button Content="{Binding ViewModel.BackupExport}"
+                                                Command="{Binding ViewModel.ExportBackupCommand}" />
+                                        <Button Content="{Binding ViewModel.BackupImport}"
+                                                Command="{Binding ViewModel.ImportBackupCommand}" />
+                                        <Button Content="{Binding ViewModel.RunOnboarding}"
+                                                Command="{Binding ViewModel.RunOnboardingCommand}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                                <StackPanel Spacing="8">
+                                    <TextBlock Text="{Binding ViewModel.LanguageLabel}" FontWeight="SemiBold" />
+                                    <ComboBox ItemsSource="{Binding ViewModel.AvailableLanguages}"
+                                              SelectedValue="{Binding ViewModel.CurrentLanguage, Mode=TwoWay}"
+                                              SelectedValuePath="Code" DisplayMemberPath="DisplayName"
+                                              HorizontalAlignment="Stretch" />
+                                </StackPanel>
+                            </Border>
+
+                            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" CornerRadius="12" Padding="16">
+                                <StackPanel Spacing="6">
+                                    <TextBlock Text="{Binding ViewModel.HotkeysLabel}" FontWeight="SemiBold" />
+                                    <TextBlock Text="{Binding ViewModel.HotkeysDescription}" TextWrapping="Wrap" Opacity="0.75" />
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+        </NavigationView>
+
+        <tb:TaskbarIcon x:Name="TrayIcon" ToolTipText="DMBTimer" Visibility="Visible">
+            <tb:TaskbarIcon.IconSource>
+                <tb:GeneratedIconSource Text="⏳" FontSize="46" Foreground="White" Background="#FF2D6A4F" />
+            </tb:TaskbarIcon.IconSource>
+            <tb:TaskbarIcon.ContextFlyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem x:Name="TrayShowMenuItem" Text="Open" />
+                    <MenuFlyoutItem x:Name="TrayStatsMenuItem" Text="Statistics" />
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem x:Name="TrayExitMenuItem" Text="Exit" />
+                </MenuFlyout>
+            </tb:TaskbarIcon.ContextFlyout>
+        </tb:TaskbarIcon>
+
+        <Grid x:Name="DembelOverlay" Background="#CC0B1F14"
+              Visibility="Collapsed" Opacity="0" Canvas.ZIndex="20">
+            <Grid.RenderTransform>
+                <CompositeTransform x:Name="DembelOverlayScale" CenterX="260" CenterY="180" />
+            </Grid.RenderTransform>
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    CornerRadius="16" Padding="40,32"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="420">
+                <StackPanel Spacing="12" HorizontalAlignment="Center">
+                    <TextBlock Text="🥳" FontSize="64" HorizontalAlignment="Center" />
+                    <TextBlock Text="{Binding ViewModel.DembelTitle}" FontSize="34" FontWeight="Bold"
+                               HorizontalAlignment="Center" />
+                    <TextBlock Text="{Binding ViewModel.DembelMessage}" FontSize="16"
+                               TextWrapping="Wrap" TextAlignment="Center" Opacity="0.85" />
+                    <Button Content="{Binding ViewModel.DembelButton}"
+                            HorizontalAlignment="Center" Margin="0,10,0,0"
+                            Style="{StaticResource AccentButtonStyle}"
+                            Click="DembelOverlayClose_Click" />
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,12 @@
+.vs/
+**/bin/
+**/obj/
+*.user
+*.tmp
+*.pfx
+*.appx
+*.msix
+*.appxbundle
+AppPackages/
+BundleArtifacts/
+merger.py

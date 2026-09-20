@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="DMBTimer.Dialogs.CustomMilestoneDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="{Binding DialogTitle}"
+    PrimaryButtonText="{Binding SaveText}"
+    CloseButtonText="{Binding CancelText}"
+    IsPrimaryButtonEnabled="{Binding CanSave}"
+    DefaultButton="Primary"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick">
+
+    <StackPanel Width="480" Spacing="12">
+        <TextBox Header="{Binding TitleLabel}"
+                 MaxLength="160"
+                 Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Header="{Binding DescriptionLabel}"
+                 Text="{Binding Description, Mode=TwoWay}"
+                 MaxLength="2000"
+                 AcceptsReturn="True" TextWrapping="Wrap" MinHeight="72" />
+        <DatePicker Header="{Binding DateLabel}"
+                    SelectedDate="{Binding Date, Mode=TwoWay}"
+                    HorizontalAlignment="Stretch" />
+        <ToggleSwitch Header="{Binding NotifyLabel}"
+                      IsOn="{Binding NotificationsEnabled, Mode=TwoWay}" />
+    </StackPanel>
+</ContentDialog>

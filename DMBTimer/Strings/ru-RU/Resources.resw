@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="AppTitle" xml:space="preserve">
+    <value>Дембельский таймер</value>
+  </data>
+  <data name="NavigationTimer" xml:space="preserve">
+    <value>Таймер</value>
+  </data>
+  <data name="NavigationStats" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
+  <data name="NavigationSettings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="TimerLabel" xml:space="preserve">
+    <value>До дембеля осталось:</value>
+  </data>
+  <data name="StartDateLabel" xml:space="preserve">
+    <value>Дата начала службы:</value>
+  </data>
+  <data name="ModeClassic" xml:space="preserve">
+    <value>Классический</value>
+  </data>
+  <data name="ModeWeeks" xml:space="preserve">
+    <value>Недели</value>
+  </data>
+  <data name="ModeDays" xml:space="preserve">
+    <value>Дни</value>
+  </data>
+  <data name="ModeHours" xml:space="preserve">
+    <value>Часы</value>
+  </data>
+  <data name="ModeMinutes" xml:space="preserve">
+    <value>Минуты</value>
+  </data>
+  <data name="ModeSeconds" xml:space="preserve">
+    <value>Секунды</value>
+  </data>
+  <data name="StatsHeader" xml:space="preserve">
+    <value>Статистика и календарь</value>
+  </data>
+  <data name="StatsServed" xml:space="preserve">
+    <value>Отслужено</value>
+  </data>
+  <data name="StatsLeft" xml:space="preserve">
+    <value>Осталось</value>
+  </data>
+  <data name="StatsProgress" xml:space="preserve">
+    <value>Прогресс</value>
+  </data>
+  <data name="StatsDembel" xml:space="preserve">
+    <value>Дембель</value>
+  </data>
+  <data name="SettingsHeader" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="ServiceLengthLabel" xml:space="preserve">
+    <value>Срок службы (дней)</value>
+  </data>
+  <data name="ServiceLengthApply" xml:space="preserve">
+    <value>Применить</value>
+  </data>
+  <data name="NotificationSoundLabel" xml:space="preserve">
+    <value>Звук уведомлений</value>
+  </data>
+  <data name="NotificationSoundNotSelected" xml:space="preserve">
+    <value>Не выбран</value>
+  </data>
+  <data name="NotificationSoundSelect" xml:space="preserve">
+    <value>Выбрать WAV</value>
+  </data>
+  <data name="NotificationSoundReset" xml:space="preserve">
+    <value>Сбросить</value>
+  </data>
+  <data name="AutoStartLabel" xml:space="preserve">
+    <value>Автозапуск с Windows</value>
+  </data>
+  <data name="AutoStartToggle" xml:space="preserve">
+    <value>Запускать при старте системы</value>
+  </data>
+  <data name="AutoStartErrorTitle" xml:space="preserve">
+    <value>Не удалось изменить автозапуск</value>
+  </data>
+  <data name="AutoStartDisabledByUserMessage" xml:space="preserve">
+    <value>Автозапуск отключён пользователем в Windows. Включите DMBTimer в разделе «Автозагрузка приложений» Диспетчера задач.</value>
+  </data>
+  <data name="AutoStartDisabledByPolicyMessage" xml:space="preserve">
+    <value>Автозапуск управляется системной политикой Windows и не может быть изменён приложением.</value>
+  </data>
+  <data name="AutoStartErrorMessage" xml:space="preserve">
+    <value>Windows не разрешила изменить настройку. Проверьте права доступа и раздел «Автозагрузка приложений».</value>
+  </data>
+  <data name="LanguageLabel" xml:space="preserve">
+    <value>Язык интерфейса</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Открыть окно</value>
+  </data>
+  <data name="TrayStats" xml:space="preserve">
+    <value>Статистика</value>
+  </data>
+  <data name="TrayExit" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="DembelTitle" xml:space="preserve">
+    <value>Дембель!</value>
+  </data>
+  <data name="DembelMessage" xml:space="preserve">
+    <value>Служба окончена. Добро пожаловать домой!</value>
+  </data>
+  <data name="DembelButton" xml:space="preserve">
+    <value>Ура!</value>
+  </data>
+  <data name="DembelDateLabel" xml:space="preserve">
+    <value>Дата дембеля: {0}</value>
+  </data>
+  <data name="ToolTipThemeToggle" xml:space="preserve">
+    <value>Сменить тему</value>
+  </data>
+  <data name="TimeDisplayFormat" xml:space="preserve">
+    <value>{0} дней {1:00}:{2:00}:{3:00}</value>
+  </data>
+  <data name="DaysWord" xml:space="preserve">
+    <value>дней</value>
+  </data>
+  <data name="Milestone_Start_Title" xml:space="preserve">
+    <value>Начало службы</value>
+  </data>
+  <data name="Milestone_Start_Desc" xml:space="preserve">
+    <value>Первый день. Дорога длиной в год начинается сегодня.</value>
+  </data>
+  <data name="Milestone_Served_Title" xml:space="preserve">
+    <value>{0} {1} позади</value>
+  </data>
+  <data name="Milestone_Served_Desc" xml:space="preserve">
+    <value>Отслужено уже {0} {1}.</value>
+  </data>
+  <data name="Milestone_Half_Title" xml:space="preserve">
+    <value>Экватор службы</value>
+  </data>
+  <data name="Milestone_Half_Desc" xml:space="preserve">
+    <value>Половина позади — дальше только легче.</value>
+  </data>
+  <data name="Milestone_Left_Title" xml:space="preserve">
+    <value>{0} {1} до дембеля</value>
+  </data>
+  <data name="Milestone_Left_Desc" xml:space="preserve">
+    <value>Осталось {0} {1}.</value>
+  </data>
+  <data name="Milestone_Season_Spring_Title" xml:space="preserve">
+    <value>Наступила весна</value>
+  </data>
+  <data name="Milestone_Season_Spring_Desc" xml:space="preserve">
+    <value>Первый день весны.</value>
+  </data>
+  <data name="Milestone_Season_Summer_Title" xml:space="preserve">
+    <value>Наступило лето</value>
+  </data>
+  <data name="Milestone_Season_Summer_Desc" xml:space="preserve">
+    <value>Первый день лета.</value>
+  </data>
+  <data name="Milestone_Season_Autumn_Title" xml:space="preserve">
+    <value>Наступила осень</value>
+  </data>
+  <data name="Milestone_Season_Autumn_Desc" xml:space="preserve">
+    <value>Первый день осени.</value>
+  </data>
+  <data name="Milestone_Season_Winter_Title" xml:space="preserve">
+    <value>Наступила зима</value>
+  </data>
+  <data name="Milestone_Season_Winter_Desc" xml:space="preserve">
+    <value>Первый день зимы.</value>
+  </data>
+  <data name="Milestone_NewYear_Title" xml:space="preserve">
+    <value>Новый {0} год</value>
+  </data>
+  <data name="Milestone_NewYear_Desc" xml:space="preserve">
+    <value>Ещё один год встречен на службе.</value>
+  </data>
+  <data name="Milestone_Holiday_Defender_Title" xml:space="preserve">
+    <value>День защитника Отечества</value>
+  </data>
+  <data name="Milestone_Holiday_Defender_Desc" xml:space="preserve">
+    <value>Поздравляем!</value>
+  </data>
+  <data name="Milestone_Dembel_Title" xml:space="preserve">
+    <value>Дембель!</value>
+  </data>
+  <data name="Milestone_Dembel_Desc" xml:space="preserve">
+    <value>Служба окончена. Добро пожаловать домой!</value>
+  </data>
+  <data name="CalendarHeader" xml:space="preserve">
+    <value>Календарь службы</value>
+  </data>
+  <data name="ServiceTermLabel" xml:space="preserve">
+    <value>Способ расчёта срока службы</value>
+  </data>
+  <data name="ServiceTermCalendarYear" xml:space="preserve">
+    <value>Один календарный год</value>
+  </data>
+  <data name="ServiceTermDays" xml:space="preserve">
+    <value>Количество дней</value>
+  </data>
+  <data name="ServiceTermEndDate" xml:space="preserve">
+    <value>Явная дата дембеля</value>
+  </data>
+  <data name="DembelDatePickerLabel" xml:space="preserve">
+    <value>Дата дембеля</value>
+  </data>
+  <data name="NotificationSoundPreview" xml:space="preserve">
+    <value>Прослушать</value>
+  </data>
+  <data name="HotkeysLabel" xml:space="preserve">
+    <value>Горячие клавиши</value>
+  </data>
+  <data name="HotkeysDescription" xml:space="preserve">
+    <value>Ctrl+1 — таймер, Ctrl+2 — статистика, Ctrl+3 — настройки, Ctrl+D — показать окно из любого приложения.</value>
+  </data>
+  <data name="HotkeyUnavailableTitle" xml:space="preserve">
+    <value>Горячая клавиша недоступна</value>
+  </data>
+  <data name="HotkeyUnavailableMessage" xml:space="preserve">
+    <value>Ctrl+D уже используется другим приложением. Остальные сочетания продолжат работать.</value>
+  </data>
+  <data name="SoundSelectedTitle" xml:space="preserve">
+    <value>Звук сохранён</value>
+  </data>
+  <data name="SoundSelectedMessage" xml:space="preserve">
+    <value>Выбранный WAV будет использоваться для поздравлений и уведомлений.</value>
+  </data>
+  <data name="SoundErrorTitle" xml:space="preserve">
+    <value>Не удалось воспроизвести звук</value>
+  </data>
+  <data name="SoundErrorMessage" xml:space="preserve">
+    <value>Проверьте WAV-файл.</value>
+  </data>
+  <data name="DaysServedFormat" xml:space="preserve">
+    <value>{0} из {1}</value>
+  </data>
+  <data name="DaysLeftFormat" xml:space="preserve">
+    <value>{0} дн.</value>
+  </data>
+  <data name="ClassicTimeFormat" xml:space="preserve">
+    <value>{0} лет {1} месяцев {2} дней {3:00}:{4:00}:{5:00}</value>
+  </data>
+  <data name="UnitWeekOne" xml:space="preserve"><value>неделя</value></data>
+  <data name="UnitWeekFew" xml:space="preserve"><value>недели</value></data>
+  <data name="UnitWeekMany" xml:space="preserve"><value>недель</value></data>
+  <data name="UnitDayOne" xml:space="preserve"><value>день</value></data>
+  <data name="UnitDayFew" xml:space="preserve"><value>дня</value></data>
+  <data name="UnitDayMany" xml:space="preserve"><value>дней</value></data>
+  <data name="UnitHourOne" xml:space="preserve"><value>час</value></data>
+  <data name="UnitHourFew" xml:space="preserve"><value>часа</value></data>
+  <data name="UnitHourMany" xml:space="preserve"><value>часов</value></data>
+  <data name="UnitMinuteOne" xml:space="preserve"><value>минута</value></data>
+  <data name="UnitMinuteFew" xml:space="preserve"><value>минуты</value></data>
+  <data name="UnitMinuteMany" xml:space="preserve"><value>минут</value></data>
+  <data name="UnitSecondOne" xml:space="preserve"><value>секунда</value></data>
+  <data name="UnitSecondFew" xml:space="preserve"><value>секунды</value></data>
+  <data name="UnitSecondMany" xml:space="preserve"><value>секунд</value></data>
+  <data name="MilitaryBranchLabel" xml:space="preserve"><value>Род войск</value></data>
+  <data name="MilitaryBranchDescription" xml:space="preserve"><value>Праздник выбранного рода войск автоматически добавляется в этапы службы и уведомления.</value></data>
+  <data name="MilitaryBranchChange" xml:space="preserve"><value>Изменить</value></data>
+  <data name="MilitaryBranchNotSelected" xml:space="preserve"><value>Не выбран</value></data>
+  <data name="MilitaryBranchWelcomeTitle" xml:space="preserve"><value>Выберите род войск</value></data>
+  <data name="MilitaryBranchWelcomeDescription" xml:space="preserve"><value>Это обязательный шаг первого запуска. Мы добавим профессиональный праздник выбранных войск в календарь этапов и напомним о нём.</value></data>
+  <data name="MilitaryBranchPickerPlaceholder" xml:space="preserve"><value>Выберите свой род войск</value></data>
+  <data name="MilitaryBranchContinue" xml:space="preserve"><value>Продолжить</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Отмена</value></data>
+  <data name="BranchHoliday_Description" xml:space="preserve"><value>Профессиональный праздник: {0}. Поздравляем!</value></data>
+
+  <data name="Branch_MotorRifle" xml:space="preserve"><value>Мотострелковые войска</value></data>
+  <data name="Branch_Artillery" xml:space="preserve"><value>Ракетные войска и артиллерия</value></data>
+  <data name="Branch_Counterintelligence" xml:space="preserve"><value>Военная контрразведка</value></data>
+  <data name="Branch_Rhbz" xml:space="preserve"><value>Войска РХБ защиты</value></data>
+  <data name="Branch_Tank" xml:space="preserve"><value>Танковые войска</value></data>
+  <data name="Branch_Airborne" xml:space="preserve"><value>Воздушно-десантные войска</value></data>
+  <data name="Branch_Navy" xml:space="preserve"><value>Военно-Морской Флот</value></data>
+  <data name="Branch_AirForce" xml:space="preserve"><value>Военно-воздушные силы</value></data>
+  <data name="Branch_AirDefense" xml:space="preserve"><value>Войска ПВО</value></data>
+  <data name="Branch_Engineering" xml:space="preserve"><value>Инженерные войска</value></data>
+  <data name="Branch_Signals" xml:space="preserve"><value>Войска связи</value></data>
+  <data name="Branch_SpecialForces" xml:space="preserve"><value>Подразделения специального назначения</value></data>
+  <data name="Branch_Railway" xml:space="preserve"><value>Железнодорожные войска</value></data>
+  <data name="Branch_MilitaryIntelligence" xml:space="preserve"><value>Военная разведка</value></data>
+  <data name="Branch_Marines" xml:space="preserve"><value>Морская пехота</value></data>
+  <data name="Branch_StrategicMissile" xml:space="preserve"><value>Ракетные войска стратегического назначения</value></data>
+  <data name="Branch_SpaceForces" xml:space="preserve"><value>Космические войска</value></data>
+  <data name="Branch_Logistics" xml:space="preserve"><value>Тыл Вооружённых Сил</value></data>
+  <data name="Branch_BorderGuard" xml:space="preserve"><value>Пограничные войска</value></data>
+  <data name="Branch_NationalGuard" xml:space="preserve"><value>Войска национальной гвардии</value></data>
+  <data name="Branch_MilitaryPolice" xml:space="preserve"><value>Военная полиция</value></data>
+
+  <data name="BranchHoliday_GroundForces" xml:space="preserve"><value>День Сухопутных войск</value></data>
+  <data name="BranchHoliday_Artillery" xml:space="preserve"><value>День ракетных войск и артиллерии</value></data>
+  <data name="BranchHoliday_Counterintelligence" xml:space="preserve"><value>День работника военной контрразведки</value></data>
+  <data name="BranchHoliday_Rhbz" xml:space="preserve"><value>День войск радиационной, химической и биологической защиты</value></data>
+  <data name="BranchHoliday_Tank" xml:space="preserve"><value>День танкиста</value></data>
+  <data name="BranchHoliday_Airborne" xml:space="preserve"><value>День Воздушно-десантных войск</value></data>
+  <data name="BranchHoliday_Navy" xml:space="preserve"><value>День Военно-Морского Флота</value></data>
+  <data name="BranchHoliday_AirForce" xml:space="preserve"><value>День Военно-воздушных сил</value></data>
+  <data name="BranchHoliday_AirDefense" xml:space="preserve"><value>День войск противовоздушной обороны</value></data>
+  <data name="BranchHoliday_Engineering" xml:space="preserve"><value>День инженерных войск</value></data>
+  <data name="BranchHoliday_Signals" xml:space="preserve"><value>День военного связиста</value></data>
+  <data name="BranchHoliday_SpecialForces" xml:space="preserve"><value>День подразделений специального назначения</value></data>
+  <data name="BranchHoliday_Railway" xml:space="preserve"><value>День Железнодорожных войск</value></data>
+  <data name="BranchHoliday_MilitaryIntelligence" xml:space="preserve"><value>День военного разведчика</value></data>
+  <data name="BranchHoliday_Marines" xml:space="preserve"><value>День морской пехоты</value></data>
+  <data name="BranchHoliday_StrategicMissile" xml:space="preserve"><value>День Ракетных войск стратегического назначения</value></data>
+  <data name="BranchHoliday_SpaceForces" xml:space="preserve"><value>День Космических войск</value></data>
+  <data name="BranchHoliday_Logistics" xml:space="preserve"><value>День Тыла Вооружённых Сил</value></data>
+  <data name="BranchHoliday_BorderGuard" xml:space="preserve"><value>День пограничника</value></data>
+  <data name="BranchHoliday_NationalGuard" xml:space="preserve"><value>День войск национальной гвардии</value></data>
+  <data name="BranchHoliday_MilitaryPolice" xml:space="preserve"><value>День военной полиции</value></data>
+  <data name="OnboardingProgress" xml:space="preserve"><value>Шаг {0} из {1}</value></data>
+  <data name="OnboardingWelcomeTitle" xml:space="preserve"><value>Настроим ваш таймер</value></data>
+  <data name="OnboardingWelcomeDescription" xml:space="preserve"><value>Мастер займёт меньше минуты: укажите имя, род войск, срок службы и параметры уведомлений.</value></data>
+  <data name="OnboardingBranchTitle" xml:space="preserve"><value>Где проходит служба?</value></data>
+  <data name="OnboardingBranchDescription" xml:space="preserve"><value>Выбранный род войск определяет профессиональный праздник в календаре этапов.</value></data>
+  <data name="OnboardingPeriodTitle" xml:space="preserve"><value>Срок службы</value></data>
+  <data name="OnboardingPeriodDescription" xml:space="preserve"><value>Можно использовать календарный год, точное количество дней или известную дату дембеля.</value></data>
+  <data name="OnboardingReadyTitle" xml:space="preserve"><value>Всё готово</value></data>
+  <data name="OnboardingReadyDescription" xml:space="preserve"><value>Осталось выбрать системные параметры. Их всегда можно изменить позже.</value></data>
+  <data name="ProfileNameLabel" xml:space="preserve"><value>Имя</value></data>
+  <data name="ProfileNamePlaceholder" xml:space="preserve"><value>Как к вам обращаться</value></data>
+  <data name="Next" xml:space="preserve"><value>Далее</value></data>
+  <data name="Back" xml:space="preserve"><value>Назад</value></data>
+  <data name="Finish" xml:space="preserve"><value>Готово</value></data>
+  <data name="Save" xml:space="preserve"><value>Сохранить</value></data>
+
+  <data name="HomeGreetingGeneric" xml:space="preserve"><value>Ваш персональный календарь службы</value></data>
+  <data name="HomeGreetingNamed" xml:space="preserve"><value>{0}, ваш персональный календарь службы</value></data>
+  <data name="CurrentServiceDayFormat" xml:space="preserve"><value>Сегодня {0}-й день службы</value></data>
+  <data name="ServiceNotStarted" xml:space="preserve"><value>Служба ещё не началась</value></data>
+  <data name="ServiceCompletedStatus" xml:space="preserve"><value>Служба завершена</value></data>
+  <data name="NextMilestoneLabel" xml:space="preserve"><value>Ближайшее событие</value></data>
+  <data name="NoUpcomingMilestones" xml:space="preserve"><value>Все этапы пройдены</value></data>
+  <data name="MilestoneToday" xml:space="preserve"><value>Сегодня</value></data>
+  <data name="MilestoneInDays" xml:space="preserve"><value>Через {0} {1}</value></data>
+
+  <data name="CustomMilestonesHeader" xml:space="preserve"><value>Личные этапы</value></data>
+  <data name="CustomMilestonesDescription" xml:space="preserve"><value>Добавьте присягу, отпуск, день рождения, перевод или любую памятную дату.</value></data>
+  <data name="CustomMilestoneAdd" xml:space="preserve"><value>Добавить этап</value></data>
+  <data name="CustomMilestoneEdit" xml:space="preserve"><value>Изменить</value></data>
+  <data name="CustomMilestoneDelete" xml:space="preserve"><value>Удалить</value></data>
+  <data name="CustomMilestoneDialogTitle" xml:space="preserve"><value>Личный этап</value></data>
+  <data name="CustomMilestoneTitleLabel" xml:space="preserve"><value>Название</value></data>
+  <data name="CustomMilestoneDescriptionLabel" xml:space="preserve"><value>Описание</value></data>
+  <data name="CustomMilestoneDateLabel" xml:space="preserve"><value>Дата события</value></data>
+  <data name="CustomMilestoneNotifyLabel" xml:space="preserve"><value>Показать системное уведомление в этот день</value></data>
+  <data name="CustomMilestoneDeleteTitle" xml:space="preserve"><value>Удалить личный этап?</value></data>
+  <data name="CustomMilestoneDeleteConfirmation" xml:space="preserve"><value>Этап будет удалён из календаря и резервной копии.</value></data>
+
+  <data name="SystemNotificationsLabel" xml:space="preserve"><value>Системные уведомления Windows</value></data>
+  <data name="SystemNotificationsToggle" xml:space="preserve"><value>Уведомлять об этапах и праздниках</value></data>
+  <data name="TestNotification" xml:space="preserve"><value>Проверить уведомление</value></data>
+  <data name="TestNotificationTitle" xml:space="preserve"><value>DMBTimer работает</value></data>
+  <data name="TestNotificationMessage" xml:space="preserve"><value>Системные уведомления настроены правильно.</value></data>
+  <data name="NotificationsDisabledTitle" xml:space="preserve"><value>Уведомления выключены</value></data>
+  <data name="NotificationsDisabledMessage" xml:space="preserve"><value>Включите переключатель системных уведомлений и повторите проверку.</value></data>
+  <data name="NotificationOpen" xml:space="preserve"><value>Открыть DMBTimer</value></data>
+
+  <data name="BackupLabel" xml:space="preserve"><value>Резервная копия</value></data>
+  <data name="BackupDescription" xml:space="preserve"><value>Экспорт сохраняет профиль, срок службы, настройки, личные этапы и выбранный WAV в одном переносимом файле.</value></data>
+  <data name="BackupExport" xml:space="preserve"><value>Создать копию</value></data>
+  <data name="BackupImport" xml:space="preserve"><value>Восстановить</value></data>
+  <data name="BackupFileType" xml:space="preserve"><value>Резервная копия DMBTimer</value></data>
+  <data name="BackupExportedTitle" xml:space="preserve"><value>Копия создана</value></data>
+  <data name="BackupExportedMessage" xml:space="preserve"><value>Настройки и этапы успешно экспортированы.</value></data>
+  <data name="BackupImportedTitle" xml:space="preserve"><value>Данные восстановлены</value></data>
+  <data name="BackupImportedMessage" xml:space="preserve"><value>Профиль, настройки и этапы загружены из резервной копии.</value></data>
+  <data name="BackupImportConfirmTitle" xml:space="preserve"><value>Восстановить резервную копию?</value></data>
+  <data name="BackupImportConfirmMessage" xml:space="preserve"><value>Текущие настройки и личные этапы будут заменены данными из выбранного файла.</value></data>
+  <data name="BackupErrorTitle" xml:space="preserve"><value>Ошибка резервной копии</value></data>
+  <data name="BackupErrorMessage" xml:space="preserve"><value>Не удалось обработать файл.</value></data>
+  <data name="RunOnboarding" xml:space="preserve"><value>Запустить мастер настройки</value></data>
+</root>

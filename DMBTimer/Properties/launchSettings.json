@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DMBTimer (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "DMBTimer (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

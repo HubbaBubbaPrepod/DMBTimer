@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\DMBTimer\Models\AppEnums.cs" Link="Models\AppEnums.cs" />
+    <Compile Include="..\DMBTimer\Models\AppBackup.cs" Link="Models\AppBackup.cs" />
+    <Compile Include="..\DMBTimer\Models\CustomMilestone.cs" Link="Models\CustomMilestone.cs" />
+    <Compile Include="..\DMBTimer\Services\BackupService.cs" Link="Services\BackupService.cs" />
+  </ItemGroup>
+</Project>

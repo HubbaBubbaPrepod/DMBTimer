@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <data name="AppTitle" xml:space="preserve">
+    <value>DMBTimer</value>
+  </data>
+  <data name="NavigationTimer" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="NavigationStats" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="NavigationSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="TimerLabel" xml:space="preserve">
+    <value>Time until discharge:</value>
+  </data>
+  <data name="StartDateLabel" xml:space="preserve">
+    <value>Service start date:</value>
+  </data>
+  <data name="ModeClassic" xml:space="preserve">
+    <value>Classic</value>
+  </data>
+  <data name="ModeWeeks" xml:space="preserve">
+    <value>Weeks</value>
+  </data>
+  <data name="ModeDays" xml:space="preserve">
+    <value>Days</value>
+  </data>
+  <data name="ModeHours" xml:space="preserve">
+    <value>Hours</value>
+  </data>
+  <data name="ModeMinutes" xml:space="preserve">
+    <value>Minutes</value>
+  </data>
+  <data name="ModeSeconds" xml:space="preserve">
+    <value>Seconds</value>
+  </data>
+  <data name="StatsHeader" xml:space="preserve">
+    <value>Statistics and Calendar</value>
+  </data>
+  <data name="StatsServed" xml:space="preserve">
+    <value>Served</value>
+  </data>
+  <data name="StatsLeft" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="StatsProgress" xml:space="preserve">
+    <value>Progress</value>
+  </data>
+  <data name="StatsDembel" xml:space="preserve">
+    <value>Discharge</value>
+  </data>
+  <data name="SettingsHeader" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ServiceLengthLabel" xml:space="preserve">
+    <value>Service length (days)</value>
+  </data>
+  <data name="ServiceLengthApply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="NotificationSoundLabel" xml:space="preserve">
+    <value>Notification sound</value>
+  </data>
+  <data name="NotificationSoundNotSelected" xml:space="preserve">
+    <value>Not selected</value>
+  </data>
+  <data name="NotificationSoundSelect" xml:space="preserve">
+    <value>Select WAV</value>
+  </data>
+  <data name="NotificationSoundReset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="AutoStartLabel" xml:space="preserve">
+    <value>Auto-start with Windows</value>
+  </data>
+  <data name="AutoStartToggle" xml:space="preserve">
+    <value>Launch at system startup</value>
+  </data>
+  <data name="AutoStartErrorTitle" xml:space="preserve">
+    <value>Could not change auto-start</value>
+  </data>
+  <data name="AutoStartDisabledByUserMessage" xml:space="preserve">
+    <value>Auto-start was disabled by the user in Windows. Enable DMBTimer under Startup apps in Task Manager.</value>
+  </data>
+  <data name="AutoStartDisabledByPolicyMessage" xml:space="preserve">
+    <value>Auto-start is controlled by a Windows system policy and cannot be changed by the app.</value>
+  </data>
+  <data name="AutoStartErrorMessage" xml:space="preserve">
+    <value>Windows did not allow this setting to be changed. Check permissions and Startup apps.</value>
+  </data>
+  <data name="LanguageLabel" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="TrayShow" xml:space="preserve">
+    <value>Show window</value>
+  </data>
+  <data name="TrayStats" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="TrayExit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="DembelTitle" xml:space="preserve">
+    <value>Discharge!</value>
+  </data>
+  <data name="DembelMessage" xml:space="preserve">
+    <value>Service is over. Welcome home!</value>
+  </data>
+  <data name="DembelButton" xml:space="preserve">
+    <value>Hurray!</value>
+  </data>
+  <data name="DembelDateLabel" xml:space="preserve">
+    <value>Discharge date: {0}</value>
+  </data>
+  <data name="ToolTipThemeToggle" xml:space="preserve">
+    <value>Change theme</value>
+  </data>
+  <data name="TimeDisplayFormat" xml:space="preserve">
+    <value>{0} days {1:00}:{2:00}:{3:00}</value>
+  </data>
+  <data name="DaysWord" xml:space="preserve">
+    <value>days</value>
+  </data>
+  <data name="Milestone_Start_Title" xml:space="preserve">
+    <value>Start of service</value>
+  </data>
+  <data name="Milestone_Start_Desc" xml:space="preserve">
+    <value>First day. The long road of a year begins today.</value>
+  </data>
+  <data name="Milestone_Served_Title" xml:space="preserve">
+    <value>{0} {1} behind</value>
+  </data>
+  <data name="Milestone_Served_Desc" xml:space="preserve">
+    <value>{0} {1} already served.</value>
+  </data>
+  <data name="Milestone_Half_Title" xml:space="preserve">
+    <value>Halfway point</value>
+  </data>
+  <data name="Milestone_Half_Desc" xml:space="preserve">
+    <value>Halfway done – only easier from here.</value>
+  </data>
+  <data name="Milestone_Left_Title" xml:space="preserve">
+    <value>{0} {1} until discharge</value>
+  </data>
+  <data name="Milestone_Left_Desc" xml:space="preserve">
+    <value>{0} {1} left.</value>
+  </data>
+  <data name="Milestone_Season_Spring_Title" xml:space="preserve">
+    <value>Spring has come</value>
+  </data>
+  <data name="Milestone_Season_Spring_Desc" xml:space="preserve">
+    <value>First day of spring.</value>
+  </data>
+  <data name="Milestone_Season_Summer_Title" xml:space="preserve">
+    <value>Summer has come</value>
+  </data>
+  <data name="Milestone_Season_Summer_Desc" xml:space="preserve">
+    <value>First day of summer.</value>
+  </data>
+  <data name="Milestone_Season_Autumn_Title" xml:space="preserve">
+    <value>Autumn has come</value>
+  </data>
+  <data name="Milestone_Season_Autumn_Desc" xml:space="preserve">
+    <value>First day of autumn.</value>
+  </data>
+  <data name="Milestone_Season_Winter_Title" xml:space="preserve">
+    <value>Winter has come</value>
+  </data>
+  <data name="Milestone_Season_Winter_Desc" xml:space="preserve">
+    <value>First day of winter.</value>
+  </data>
+  <data name="Milestone_NewYear_Title" xml:space="preserve">
+    <value>New {0} Year</value>
+  </data>
+  <data name="Milestone_NewYear_Desc" xml:space="preserve">
+    <value>Another year encountered during service.</value>
+  </data>
+  <data name="Milestone_Holiday_Defender_Title" xml:space="preserve">
+    <value>Defender of the Fatherland Day</value>
+  </data>
+  <data name="Milestone_Holiday_Defender_Desc" xml:space="preserve">
+    <value>Congratulations!</value>
+  </data>
+  <data name="Milestone_Dembel_Title" xml:space="preserve">
+    <value>Discharge!</value>
+  </data>
+  <data name="Milestone_Dembel_Desc" xml:space="preserve">
+    <value>Service is over. Welcome home!</value>
+  </data>
+  <data name="CalendarHeader" xml:space="preserve">
+    <value>Service calendar</value>
+  </data>
+  <data name="ServiceTermLabel" xml:space="preserve">
+    <value>Service term calculation</value>
+  </data>
+  <data name="ServiceTermCalendarYear" xml:space="preserve">
+    <value>One calendar year</value>
+  </data>
+  <data name="ServiceTermDays" xml:space="preserve">
+    <value>Number of days</value>
+  </data>
+  <data name="ServiceTermEndDate" xml:space="preserve">
+    <value>Explicit discharge date</value>
+  </data>
+  <data name="DembelDatePickerLabel" xml:space="preserve">
+    <value>Discharge date</value>
+  </data>
+  <data name="NotificationSoundPreview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="HotkeysLabel" xml:space="preserve">
+    <value>Keyboard shortcuts</value>
+  </data>
+  <data name="HotkeysDescription" xml:space="preserve">
+    <value>Ctrl+1 — timer, Ctrl+2 — statistics, Ctrl+3 — settings, Ctrl+D — show the window from any application.</value>
+  </data>
+  <data name="HotkeyUnavailableTitle" xml:space="preserve">
+    <value>Shortcut unavailable</value>
+  </data>
+  <data name="HotkeyUnavailableMessage" xml:space="preserve">
+    <value>Ctrl+D is already used by another application. Other shortcuts will continue to work.</value>
+  </data>
+  <data name="SoundSelectedTitle" xml:space="preserve">
+    <value>Sound saved</value>
+  </data>
+  <data name="SoundSelectedMessage" xml:space="preserve">
+    <value>The selected WAV will be used for milestones and notifications.</value>
+  </data>
+  <data name="SoundErrorTitle" xml:space="preserve">
+    <value>Unable to play sound</value>
+  </data>
+  <data name="SoundErrorMessage" xml:space="preserve">
+    <value>Please check the WAV file.</value>
+  </data>
+  <data name="DaysServedFormat" xml:space="preserve">
+    <value>{0} of {1}</value>
+  </data>
+  <data name="DaysLeftFormat" xml:space="preserve">
+    <value>{0} days</value>
+  </data>
+  <data name="ClassicTimeFormat" xml:space="preserve">
+    <value>{0} years {1} months {2} days {3:00}:{4:00}:{5:00}</value>
+  </data>
+  <data name="UnitWeekOne" xml:space="preserve"><value>week</value></data>
+  <data name="UnitWeekFew" xml:space="preserve"><value>weeks</value></data>
+  <data name="UnitWeekMany" xml:space="preserve"><value>weeks</value></data>
+  <data name="UnitDayOne" xml:space="preserve"><value>day</value></data>
+  <data name="UnitDayFew" xml:space="preserve"><value>days</value></data>
+  <data name="UnitDayMany" xml:space="preserve"><value>days</value></data>
+  <data name="UnitHourOne" xml:space="preserve"><value>hour</value></data>
+  <data name="UnitHourFew" xml:space="preserve"><value>hours</value></data>
+  <data name="UnitHourMany" xml:space="preserve"><value>hours</value></data>
+  <data name="UnitMinuteOne" xml:space="preserve"><value>minute</value></data>
+  <data name="UnitMinuteFew" xml:space="preserve"><value>minutes</value></data>
+  <data name="UnitMinuteMany" xml:space="preserve"><value>minutes</value></data>
+  <data name="UnitSecondOne" xml:space="preserve"><value>second</value></data>
+  <data name="UnitSecondFew" xml:space="preserve"><value>seconds</value></data>
+  <data name="UnitSecondMany" xml:space="preserve"><value>seconds</value></data>
+  <data name="MilitaryBranchLabel" xml:space="preserve"><value>Military branch</value></data>
+  <data name="MilitaryBranchDescription" xml:space="preserve"><value>The selected branch holiday is automatically added to service milestones and notifications.</value></data>
+  <data name="MilitaryBranchChange" xml:space="preserve"><value>Change</value></data>
+  <data name="MilitaryBranchNotSelected" xml:space="preserve"><value>Not selected</value></data>
+  <data name="MilitaryBranchWelcomeTitle" xml:space="preserve"><value>Select your military branch</value></data>
+  <data name="MilitaryBranchWelcomeDescription" xml:space="preserve"><value>This is a required first-run step. The selected branch holiday will be added to your milestone calendar and notifications.</value></data>
+  <data name="MilitaryBranchPickerPlaceholder" xml:space="preserve"><value>Select your branch</value></data>
+  <data name="MilitaryBranchContinue" xml:space="preserve"><value>Continue</value></data>
+  <data name="Cancel" xml:space="preserve"><value>Cancel</value></data>
+  <data name="BranchHoliday_Description" xml:space="preserve"><value>Professional holiday for {0}. Congratulations!</value></data>
+
+  <data name="Branch_MotorRifle" xml:space="preserve"><value>Motor Rifle Troops</value></data>
+  <data name="Branch_Artillery" xml:space="preserve"><value>Missile Forces and Artillery</value></data>
+  <data name="Branch_Counterintelligence" xml:space="preserve"><value>Military Counterintelligence</value></data>
+  <data name="Branch_Rhbz" xml:space="preserve"><value>CBRN Defence Troops</value></data>
+  <data name="Branch_Tank" xml:space="preserve"><value>Tank Troops</value></data>
+  <data name="Branch_Airborne" xml:space="preserve"><value>Airborne Troops</value></data>
+  <data name="Branch_Navy" xml:space="preserve"><value>Navy</value></data>
+  <data name="Branch_AirForce" xml:space="preserve"><value>Air Force</value></data>
+  <data name="Branch_AirDefense" xml:space="preserve"><value>Air Defence Troops</value></data>
+  <data name="Branch_Engineering" xml:space="preserve"><value>Engineer Troops</value></data>
+  <data name="Branch_Signals" xml:space="preserve"><value>Signal Troops</value></data>
+  <data name="Branch_SpecialForces" xml:space="preserve"><value>Special Forces</value></data>
+  <data name="Branch_Railway" xml:space="preserve"><value>Railway Troops</value></data>
+  <data name="Branch_MilitaryIntelligence" xml:space="preserve"><value>Military Intelligence</value></data>
+  <data name="Branch_Marines" xml:space="preserve"><value>Naval Infantry</value></data>
+  <data name="Branch_StrategicMissile" xml:space="preserve"><value>Strategic Missile Forces</value></data>
+  <data name="Branch_SpaceForces" xml:space="preserve"><value>Space Forces</value></data>
+  <data name="Branch_Logistics" xml:space="preserve"><value>Armed Forces Logistics</value></data>
+  <data name="Branch_BorderGuard" xml:space="preserve"><value>Border Guard Troops</value></data>
+  <data name="Branch_NationalGuard" xml:space="preserve"><value>National Guard Troops</value></data>
+  <data name="Branch_MilitaryPolice" xml:space="preserve"><value>Military Police</value></data>
+
+  <data name="BranchHoliday_GroundForces" xml:space="preserve"><value>Ground Forces Day</value></data>
+  <data name="BranchHoliday_Artillery" xml:space="preserve"><value>Missile Forces and Artillery Day</value></data>
+  <data name="BranchHoliday_Counterintelligence" xml:space="preserve"><value>Military Counterintelligence Day</value></data>
+  <data name="BranchHoliday_Rhbz" xml:space="preserve"><value>CBRN Defence Troops Day</value></data>
+  <data name="BranchHoliday_Tank" xml:space="preserve"><value>Tankers' Day</value></data>
+  <data name="BranchHoliday_Airborne" xml:space="preserve"><value>Airborne Troops Day</value></data>
+  <data name="BranchHoliday_Navy" xml:space="preserve"><value>Navy Day</value></data>
+  <data name="BranchHoliday_AirForce" xml:space="preserve"><value>Air Force Day</value></data>
+  <data name="BranchHoliday_AirDefense" xml:space="preserve"><value>Air Defence Troops Day</value></data>
+  <data name="BranchHoliday_Engineering" xml:space="preserve"><value>Engineer Troops Day</value></data>
+  <data name="BranchHoliday_Signals" xml:space="preserve"><value>Military Signaller Day</value></data>
+  <data name="BranchHoliday_SpecialForces" xml:space="preserve"><value>Special Forces Units Day</value></data>
+  <data name="BranchHoliday_Railway" xml:space="preserve"><value>Railway Troops Day</value></data>
+  <data name="BranchHoliday_MilitaryIntelligence" xml:space="preserve"><value>Military Intelligence Day</value></data>
+  <data name="BranchHoliday_Marines" xml:space="preserve"><value>Naval Infantry Day</value></data>
+  <data name="BranchHoliday_StrategicMissile" xml:space="preserve"><value>Strategic Missile Forces Day</value></data>
+  <data name="BranchHoliday_SpaceForces" xml:space="preserve"><value>Space Forces Day</value></data>
+  <data name="BranchHoliday_Logistics" xml:space="preserve"><value>Armed Forces Logistics Day</value></data>
+  <data name="BranchHoliday_BorderGuard" xml:space="preserve"><value>Border Guard Day</value></data>
+  <data name="BranchHoliday_NationalGuard" xml:space="preserve"><value>National Guard Troops Day</value></data>
+  <data name="BranchHoliday_MilitaryPolice" xml:space="preserve"><value>Military Police Day</value></data>
+  <data name="OnboardingProgress" xml:space="preserve"><value>Step {0} of {1}</value></data>
+  <data name="OnboardingWelcomeTitle" xml:space="preserve"><value>Set up your timer</value></data>
+  <data name="OnboardingWelcomeDescription" xml:space="preserve"><value>The setup takes less than a minute: enter a name, military branch, service period and notification preferences.</value></data>
+  <data name="OnboardingBranchTitle" xml:space="preserve"><value>Where do you serve?</value></data>
+  <data name="OnboardingBranchDescription" xml:space="preserve"><value>Your military branch determines which professional holiday appears in the milestone calendar.</value></data>
+  <data name="OnboardingPeriodTitle" xml:space="preserve"><value>Service period</value></data>
+  <data name="OnboardingPeriodDescription" xml:space="preserve"><value>Use one calendar year, an exact number of days, or a known discharge date.</value></data>
+  <data name="OnboardingReadyTitle" xml:space="preserve"><value>Everything is ready</value></data>
+  <data name="OnboardingReadyDescription" xml:space="preserve"><value>Choose the remaining system options. You can change them later.</value></data>
+  <data name="ProfileNameLabel" xml:space="preserve"><value>Name</value></data>
+  <data name="ProfileNamePlaceholder" xml:space="preserve"><value>How should the app address you?</value></data>
+  <data name="Next" xml:space="preserve"><value>Next</value></data>
+  <data name="Back" xml:space="preserve"><value>Back</value></data>
+  <data name="Finish" xml:space="preserve"><value>Finish</value></data>
+  <data name="Save" xml:space="preserve"><value>Save</value></data>
+
+  <data name="HomeGreetingGeneric" xml:space="preserve"><value>Your personal service calendar</value></data>
+  <data name="HomeGreetingNamed" xml:space="preserve"><value>{0}, your personal service calendar</value></data>
+  <data name="CurrentServiceDayFormat" xml:space="preserve"><value>Today is service day {0}</value></data>
+  <data name="ServiceNotStarted" xml:space="preserve"><value>Service has not started yet</value></data>
+  <data name="ServiceCompletedStatus" xml:space="preserve"><value>Service completed</value></data>
+  <data name="NextMilestoneLabel" xml:space="preserve"><value>Next event</value></data>
+  <data name="NoUpcomingMilestones" xml:space="preserve"><value>All milestones completed</value></data>
+  <data name="MilestoneToday" xml:space="preserve"><value>Today</value></data>
+  <data name="MilestoneInDays" xml:space="preserve"><value>In {0} {1}</value></data>
+
+  <data name="CustomMilestonesHeader" xml:space="preserve"><value>Personal milestones</value></data>
+  <data name="CustomMilestonesDescription" xml:space="preserve"><value>Add the oath ceremony, leave, a birthday, transfer, or any memorable date.</value></data>
+  <data name="CustomMilestoneAdd" xml:space="preserve"><value>Add milestone</value></data>
+  <data name="CustomMilestoneEdit" xml:space="preserve"><value>Edit</value></data>
+  <data name="CustomMilestoneDelete" xml:space="preserve"><value>Delete</value></data>
+  <data name="CustomMilestoneDialogTitle" xml:space="preserve"><value>Personal milestone</value></data>
+  <data name="CustomMilestoneTitleLabel" xml:space="preserve"><value>Title</value></data>
+  <data name="CustomMilestoneDescriptionLabel" xml:space="preserve"><value>Description</value></data>
+  <data name="CustomMilestoneDateLabel" xml:space="preserve"><value>Event date</value></data>
+  <data name="CustomMilestoneNotifyLabel" xml:space="preserve"><value>Show a system notification on this date</value></data>
+  <data name="CustomMilestoneDeleteTitle" xml:space="preserve"><value>Delete this personal milestone?</value></data>
+  <data name="CustomMilestoneDeleteConfirmation" xml:space="preserve"><value>The milestone will be removed from the calendar and future backups.</value></data>
+
+  <data name="SystemNotificationsLabel" xml:space="preserve"><value>Windows system notifications</value></data>
+  <data name="SystemNotificationsToggle" xml:space="preserve"><value>Notify me about milestones and holidays</value></data>
+  <data name="TestNotification" xml:space="preserve"><value>Test notification</value></data>
+  <data name="TestNotificationTitle" xml:space="preserve"><value>DMBTimer is working</value></data>
+  <data name="TestNotificationMessage" xml:space="preserve"><value>System notifications are configured correctly.</value></data>
+  <data name="NotificationsDisabledTitle" xml:space="preserve"><value>Notifications are disabled</value></data>
+  <data name="NotificationsDisabledMessage" xml:space="preserve"><value>Enable system notifications, then try the test again.</value></data>
+  <data name="NotificationOpen" xml:space="preserve"><value>Open DMBTimer</value></data>
+
+  <data name="BackupLabel" xml:space="preserve"><value>Backup</value></data>
+  <data name="BackupDescription" xml:space="preserve"><value>Export saves your profile, service period, settings, personal milestones and selected WAV in one portable file.</value></data>
+  <data name="BackupExport" xml:space="preserve"><value>Create backup</value></data>
+  <data name="BackupImport" xml:space="preserve"><value>Restore</value></data>
+  <data name="BackupFileType" xml:space="preserve"><value>DMBTimer backup</value></data>
+  <data name="BackupExportedTitle" xml:space="preserve"><value>Backup created</value></data>
+  <data name="BackupExportedMessage" xml:space="preserve"><value>Settings and milestones were exported successfully.</value></data>
+  <data name="BackupImportedTitle" xml:space="preserve"><value>Data restored</value></data>
+  <data name="BackupImportedMessage" xml:space="preserve"><value>Your profile, settings and milestones were restored from the backup.</value></data>
+  <data name="BackupImportConfirmTitle" xml:space="preserve"><value>Restore this backup?</value></data>
+  <data name="BackupImportConfirmMessage" xml:space="preserve"><value>Current settings and personal milestones will be replaced with data from the selected file.</value></data>
+  <data name="BackupErrorTitle" xml:space="preserve"><value>Backup error</value></data>
+  <data name="BackupErrorMessage" xml:space="preserve"><value>The file could not be processed.</value></data>
+  <data name="RunOnboarding" xml:space="preserve"><value>Run setup wizard</value></data>
+</root>

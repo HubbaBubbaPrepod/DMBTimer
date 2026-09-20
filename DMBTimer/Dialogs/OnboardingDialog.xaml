@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog
+    x:Class="DMBTimer.Dialogs.OnboardingDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    PrimaryButtonText="{Binding PrimaryButtonText}"
+    SecondaryButtonText="{Binding SecondaryButtonText}"
+    IsPrimaryButtonEnabled="{Binding CanContinue}"
+    DefaultButton="Primary"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    Closing="ContentDialog_Closing">
+
+    <Grid Width="560" MinHeight="330">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Spacing="8" Margin="0,0,0,18">
+            <TextBlock Text="{Binding ProgressText}" Opacity="0.65" />
+            <ProgressBar Minimum="1" Maximum="4" Value="{Binding ProgressValue}" />
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <StackPanel Visibility="{Binding StepOneVisibility}" Spacing="14">
+                <TextBlock Text="{Binding WelcomeTitle}" FontSize="27" FontWeight="SemiBold" />
+                <TextBlock Text="{Binding WelcomeDescription}" TextWrapping="Wrap" Opacity="0.75" />
+                <TextBox Header="{Binding ProfileNameLabel}"
+                         PlaceholderText="{Binding ProfileNamePlaceholder}"
+                         MaxLength="80"
+                         Text="{Binding ProfileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <ComboBox Header="{Binding LanguageLabel}"
+                          ItemsSource="{Binding Languages}"
+                          SelectedValue="{Binding CurrentLanguage, Mode=TwoWay}"
+                          SelectedValuePath="Code" DisplayMemberPath="DisplayName"
+                          HorizontalAlignment="Stretch" />
+            </StackPanel>
+
+            <StackPanel Visibility="{Binding StepTwoVisibility}" Spacing="14">
+                <TextBlock Text="{Binding BranchStepTitle}" FontSize="27" FontWeight="SemiBold" />
+                <TextBlock Text="{Binding BranchStepDescription}" TextWrapping="Wrap" Opacity="0.75" />
+                <ComboBox ItemsSource="{Binding MilitaryBranches}"
+                          SelectedItem="{Binding SelectedBranch, Mode=TwoWay}"
+                          DisplayMemberPath="DisplayName"
+                          PlaceholderText="{Binding BranchPlaceholder}"
+                          IsTextSearchEnabled="True"
+                          HorizontalAlignment="Stretch" />
+            </StackPanel>
+
+            <StackPanel Visibility="{Binding StepThreeVisibility}" Spacing="14">
+                <TextBlock Text="{Binding PeriodStepTitle}" FontSize="27" FontWeight="SemiBold" />
+                <TextBlock Text="{Binding PeriodStepDescription}" TextWrapping="Wrap" Opacity="0.75" />
+                <DatePicker Header="{Binding StartDateLabel}"
+                            SelectedDate="{Binding StartDate, Mode=TwoWay}"
+                            HorizontalAlignment="Stretch" />
+                <ComboBox Header="{Binding ServiceTermLabel}"
+                          ItemsSource="{Binding ServiceTermOptions}"
+                          SelectedValue="{Binding ServiceTermMode, Mode=TwoWay}"
+                          SelectedValuePath="Mode" DisplayMemberPath="DisplayName"
+                          HorizontalAlignment="Stretch" />
+                <Grid ColumnSpacing="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <NumberBox Header="{Binding ServiceLengthLabel}"
+                               Value="{Binding ServiceLengthDays, Mode=TwoWay}"
+                               IsEnabled="{Binding IsDaysTermMode}"
+                               Minimum="1" Maximum="3650" SpinButtonPlacementMode="Inline" />
+                    <DatePicker Grid.Column="1" Header="{Binding EndDateLabel}"
+                                SelectedDate="{Binding EndDate, Mode=TwoWay}"
+                                IsEnabled="{Binding IsEndDateTermMode}" />
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Visibility="{Binding StepFourVisibility}" Spacing="16">
+                <TextBlock Text="{Binding ReadyTitle}" FontSize="27" FontWeight="SemiBold" />
+                <TextBlock Text="{Binding ReadyDescription}" TextWrapping="Wrap" Opacity="0.75" />
+                <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        CornerRadius="12" Padding="16">
+                    <StackPanel Spacing="14">
+                        <ToggleSwitch Header="{Binding NotificationsToggle}"
+                                      IsOn="{Binding SystemNotificationsEnabled, Mode=TwoWay}" />
+                        <ToggleSwitch Header="{Binding AutoStartToggle}"
+                                      IsOn="{Binding AutoStartEnabled, Mode=TwoWay}" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</ContentDialog>

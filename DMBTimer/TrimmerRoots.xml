@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<linker>
+	<assembly fullname="DMBTimer">
+		<type fullname="DMBTimer.HoverContent" preserve="all" />
+		<type fullname="DMBTimer.MainWindow" preserve="all" />
+	</assembly>
+</linker>
