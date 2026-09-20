@@ -1,30 +1,111 @@
 # DMBTimer
 
-WinUI 3 application for tracking a service period, milestones and the discharge date.
+<p align="center">
+  <img src="DMBTimer/Assets/Square1254x1254Logo.png" width="96" alt="Логотип DMBTimer">
+</p>
 
-## Requirements
+> Современный таймер службы для Windows с вехами, военными праздниками и системными уведомлениями.
 
-- Windows 10 version 1809 or newer
-- .NET 8 SDK
-- Visual Studio with the Windows App SDK / WinUI workload, or a compatible `dotnet` setup
+[English version](README.en.md)
 
-## Build
+[![CI](https://github.com/HubbaBubbaPrepod/DMBTimer/actions/workflows/ci.yml/badge.svg)](https://github.com/HubbaBubbaPrepod/DMBTimer/actions/workflows/ci.yml)
+[![.NET 8](https://img.shields.io/badge/.NET-8.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
+[![WinUI 3](https://img.shields.io/badge/UI-WinUI%203-0078D4)](https://learn.microsoft.com/windows/apps/winui/winui3/)
+[![Windows](https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078D4?logo=windows11)](https://www.microsoft.com/windows/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+DMBTimer считает время до окончания службы, показывает прогресс и важные даты, напоминает о вехах и праздниках выбранного рода войск. Приложение построено на WinUI 3 и .NET 8, работает из системного трея и сохраняет данные локально.
+
+[Возможности](#возможности) · [Запуск](#запуск) · [Архитектура](docs/ARCHITECTURE.md) · [Разработка](#разработка) · [Issues](https://github.com/HubbaBubbaPrepod/DMBTimer/issues)
+
+## Возможности
+
+| Возможность | Реализация |
+| --- | --- |
+| Точный расчёт срока | Календарный год, заданное число дней или явная дата окончания |
+| Первый запуск | Пошаговая настройка профиля, языка, рода войск, срока, уведомлений и автозапуска |
+| Прогресс службы | Оставшиеся и прошедшие дни, проценты, ближайшая веха и статистика |
+| Вехи | Системные этапы, праздники и пользовательские даты |
+| Военные праздники | Автоматически рассчитываются для 21 рода войск, включая переходящие даты |
+| Уведомления | Windows App Notifications, защита от повторов и переход обратно в приложение |
+| Звук | Встроенный сигнал или собственный WAV с предварительным прослушиванием |
+| Интеграция с Windows | Системный трей, автозапуск и глобальная комбинация `Ctrl+D` |
+| Интерфейс | Светлая и тёмная темы, плавные переходы между разделами |
+| Локализация | Русский и английский через ресурсные файлы `.resw` |
+| Резервная копия | Экспорт и восстановление настроек, профиля, вех и выбранного WAV |
+
+## Расчёт срока службы
+
+DMBTimer не предполагает, что любой срок равен 365 дням.
+
+| Режим | Поведение |
+| --- | --- |
+| Календарный год | Дата окончания вычисляется через `AddYears(1)`, поэтому високосные годы учитываются |
+| Количество дней | Допускается срок от 1 до 3650 дней |
+| Дата окончания | Пользователь задаёт точную дату дембеля |
+
+Все этапы и проценты рассчитываются относительно фактических дат начала и окончания.
+
+## Рода войск и праздники
+
+При первом запуске пользователь выбирает род войск. Профильный праздник автоматически добавляется в список этапов на каждый подходящий год службы.
+
+Поддерживаются мотострелковые и танковые войска, артиллерия, военная контрразведка, РХБЗ, ВДВ, ВМФ, ВВС, ПВО, инженерные войска, войска связи, спецназ, железнодорожные войска, военная разведка, морская пехота, РВСН, космические войска, МТО, пограничная служба, Росгвардия и военная полиция.
+
+## Горячие клавиши
+
+| Комбинация | Действие |
+| --- | --- |
+| `Ctrl+1` | Таймер |
+| `Ctrl+2` | Статистика |
+| `Ctrl+3` | Настройки |
+| `Ctrl+D` | Показать окно из любого приложения |
+
+## Требования
+
+- Windows 10 версии 1809 или новее либо Windows 11;
+- .NET 8 SDK;
+- Visual Studio 2022 с компонентами Windows App SDK / WinUI 3 — для разработки из IDE.
+
+## Запуск
+
+На текущем этапе готовый установщик ещё не опубликован. Проект можно запустить из Visual Studio или собрать через терминал:
 
 ```powershell
+git clone https://github.com/HubbaBubbaPrepod/DMBTimer.git
+cd DMBTimer
 dotnet restore .\DMBTimer.slnx
 dotnet build .\DMBTimer.slnx -c Debug -p:Platform=x64
 ```
 
-Backup round-trip smoke test:
+После сборки откройте `DMBTimer.slnx` в Visual Studio и запустите проект `DMBTimer` с развёртыванием пакета.
+
+## Данные и приватность
+
+Профиль, настройки и пользовательские этапы хранятся локально средствами Windows. Экспорт создаёт переносимый архив `.dmbbackup`; если выбран собственный WAV, он включается в резервную копию. Приложение не требует учётной записи и не отправляет персональные данные на сервер.
+
+## Архитектура
+
+Интерфейс построен по MVVM на `CommunityToolkit.Mvvm`. `MainViewModel` управляет состоянием представления, а расчёт дат, этапы, уведомления, локализация, автозапуск и резервное копирование вынесены в отдельные сервисы.
+
+Подробная схема компонентов и потоков данных приведена в [архитектурной документации](docs/ARCHITECTURE.md).
+
+## Разработка
 
 ```powershell
+dotnet restore .\DMBTimer.slnx
+dotnet build .\DMBTimer.slnx -c Debug -p:Platform=x64
 dotnet run --project .\BackupSmokeTest\BackupSmokeTest.csproj -c Debug
 ```
 
-The app supports calendar-year, fixed-day and explicit end-date service terms. A four-step first-run wizard configures the profile name, language, military branch, service period, Windows notifications and autostart. The selected branch's professional holiday is added to milestones and notifications.
+Последняя команда выполняет полный цикл экспорта и восстановления резервной копии. Те же проверки запускаются в GitHub Actions для каждого push и pull request.
 
-Personal milestones can be added, edited and removed from the Statistics page. Each personal milestone can independently enable or disable its notification. Windows app notifications remain active while the app is minimized to the tray, and the notification button restores the main window.
+Новый язык добавляется отдельным каталогом `DMBTimer/Strings/<language-tag>/Resources.resw`. Правила участия в разработке описаны в [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Settings, profile data, personal milestones and the selected WAV can be exported to a portable `.dmbbackup` archive and restored later. `Ctrl+D` restores the window globally, while `Ctrl+1`, `Ctrl+2` and `Ctrl+3` switch between pages.
+## Статус проекта
 
-Translations live under `DMBTimer\Strings\<language-tag>\Resources.resw`. Add a new language directory and resource file to extend the language list.
+Приложение находится в активной разработке. Основные пользовательские сценарии реализованы; перед первым стабильным релизом планируются установочный пакет, реальные скриншоты интерфейса и расширенные автоматические тесты.
+
+## Лицензия
+
+[MIT](LICENSE). Сообщения об уязвимостях следует отправлять по инструкции из [SECURITY.md](SECURITY.md), а не публиковать в открытом issue.

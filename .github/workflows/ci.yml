@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and smoke test
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore
+        run: dotnet restore .\DMBTimer.slnx
+
+      - name: Build x64
+        run: dotnet build .\DMBTimer.slnx -c Debug -p:Platform=x64 --no-restore
+
+      - name: Verify backup round trip
+        run: dotnet run --project .\BackupSmokeTest\BackupSmokeTest.csproj -c Debug
